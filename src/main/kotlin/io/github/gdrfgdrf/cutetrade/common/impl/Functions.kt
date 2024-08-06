@@ -15,6 +15,7 @@ object Functions {
             ItemFunctionsImpl,
             TranslationTextFunctionsImpl,
             TranslationFunctionsImpl,
+            ConsoleTranslationScopeFunctionsImpl,
             SoundGetterImpl,
             TradeScreenHandlerFactoryGetterImpl,
             PageableScreenHandlerFactoryGetterImpl,
@@ -25,7 +26,7 @@ object Functions {
         )
 
         implements.forEach {
-            "Register a function implementation ${it.javaClass.simpleName}".logInfo()
+            "Register the function implementation ${it.javaClass.simpleName}".logInfo()
             CommonFunctionsPool.addFunctions(it)
         }
     }
