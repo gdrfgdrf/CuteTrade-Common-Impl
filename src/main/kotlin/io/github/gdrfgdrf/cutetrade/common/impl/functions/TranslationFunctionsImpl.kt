@@ -27,6 +27,17 @@ object TranslationFunctionsImpl : CommonFunctions.TranslationFunctions {
         return translationAgent
     }
 
+    override fun insert(
+        translationAgent: TranslationAgent,
+        index: Int,
+        translationTextAgent: TranslationTextAgent,
+    ): TranslationAgent {
+        val cuteTranslation = translationAgent.cuteTranslation as CuteTranslation
+        val cuteText = translationTextAgent.cuteText as CuteText
+        cuteTranslation.insert(index, cuteText)
+        return translationAgent
+    }
+
     override fun format(translationAgent: TranslationAgent, index: Int, vararg any: Any): TranslationAgent {
         val cuteTranslation = translationAgent.cuteTranslation as CuteTranslation
         cuteTranslation.format(index, *any)
