@@ -1,8 +1,11 @@
 package io.github.gdrfgdrf.cutetrade.common.impl.functions
 
 import io.github.gdrfgdrf.cutetrade.common.CommonFunctions
+import io.github.gdrfgdrf.cutetrade.common.Constants
 import io.github.gdrfgdrf.cutetrade.common.network.interfaces.PacketAdapter
 import io.github.gdrfgdrf.cutetrade.common.proxy.PlayerProxy
+import io.github.gdrfgdrf.cutetrade.extension.logInfo
+import io.github.gdrfgdrf.cutetrade.network.NetworkManager
 import io.github.gdrfgdrf.cutetrade.network.packet.C2SOperationPacket
 import io.github.gdrfgdrf.cutetrade.network.packet.S2COperationPacket
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking
@@ -18,9 +21,16 @@ object NetworkFunctionsImpl : CommonFunctions.NetworkFunctions {
         return C2SOperationPacket(operatorName)
     }
 
-    override fun sendToServer(packetAdapter: PacketAdapter) {
-        val customPayload = packetAdapter as CustomPayload
+    override fun getOrCreateS2CIdentifier(): Any {
+        return Constants.S2C_OPERATION
+    }
 
+    override fun getOrCreateC2SIdentifier(): Any {
+        return Constants.C2S_OPERATION
+    }
+
+    override fun sendToServer(packetAdapter: PacketAdapter) {
+        TODO()
     }
 
     override fun sendToClient(identifier: Any, playerProxy: PlayerProxy, packetAdapter: PacketAdapter) {

@@ -48,6 +48,6 @@ class PacketByteBufProxyImpl private constructor(packetByteBuf: PacketByteBuf): 
 
     companion object {
         fun create(packetByteBuf: PacketByteBuf): PacketByteBufProxy =
-            io.github.gdrfgdrf.cutetrade.common.impl.PacketByteBufProxyImpl(packetByteBuf)
+            PacketByteBufProxyImpl(packetByteBuf)
     }
 }

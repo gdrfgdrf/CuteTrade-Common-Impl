@@ -2,6 +2,7 @@ package io.github.gdrfgdrf.cutetrade.common.impl
 
 import io.github.gdrfgdrf.cutetrade.common.impl.functions.*
 import io.github.gdrfgdrf.cutetrade.common.pool.CommonFunctionsPool
+import io.github.gdrfgdrf.cutetrade.extension.logInfo
 
 object Functions {
     fun initialize() {
@@ -19,12 +20,14 @@ object Functions {
             PageableScreenHandlerFactoryGetterImpl,
             ScreenHandlerFunctionsImpl,
             PageableScreenHandlerFunctionsImpl,
-            InventoryFunctionsImpl
+            InventoryFunctionsImpl,
+            PageableInventoryFunctionsImpl
         )
 
-        implements.forEach(CommonFunctionsPool::addFunctions)
-
-
+        implements.forEach {
+            "Register a function implementation ${it.javaClass.simpleName}".logInfo()
+            CommonFunctionsPool.addFunctions(it)
+        }
     }
 
 

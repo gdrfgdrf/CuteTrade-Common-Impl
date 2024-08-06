@@ -5,6 +5,6 @@ import net.minecraft.util.Identifier
 
 object MainFunctionsImpl : CommonFunctions.MainFunctions {
     override fun createIdentifier(namespace: String, path: String): Any {
-        return Identifier.of(namespace, path)
+        return Identifier.tryParse(namespace, path)!!
     }
 }

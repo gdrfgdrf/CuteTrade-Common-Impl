@@ -5,7 +5,6 @@ import io.github.gdrfgdrf.cutetrade.common.impl.TextProxyImpl
 import io.github.gdrfgdrf.cutetrade.common.proxy.TextProxy
 import io.github.gdrfgdrf.cutetrade.common.translation.TranslationAgent
 import io.github.gdrfgdrf.cutetrade.common.translation.TranslationTextAgent
-import io.github.gdrfgdrf.cutetrade.extension.format
 import io.github.gdrfgdrf.cutetranslationapi.text.CuteText
 import io.github.gdrfgdrf.cutetranslationapi.text.CuteTranslation
 
@@ -40,7 +39,7 @@ object TranslationFunctionsImpl : CommonFunctions.TranslationFunctions {
 
     override fun format(translationAgent: TranslationAgent, index: Int, vararg any: Any): TranslationAgent {
         val cuteTranslation = translationAgent.cuteTranslation as CuteTranslation
-        cuteTranslation.format(index, *any)
+        cuteTranslation.get(index).format(*any)
 
         return translationAgent
     }

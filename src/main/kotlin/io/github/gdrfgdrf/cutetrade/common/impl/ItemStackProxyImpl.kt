@@ -12,7 +12,7 @@ class ItemStackProxyImpl private constructor(itemStack: Any) : ItemStackProxy(it
     private var name: TextProxy? = null
         get() {
             if (field == null) {
-                field = io.github.gdrfgdrf.cutetrade.common.impl.TextProxyImpl.Companion.create(get().name)
+                field = TextProxyImpl.create(get().name)
             }
             return field
         }
@@ -25,7 +25,7 @@ class ItemStackProxyImpl private constructor(itemStack: Any) : ItemStackProxy(it
 
     override fun copy(): ItemStackProxy {
         val copied = get().copy()
-        return io.github.gdrfgdrf.cutetrade.common.impl.ItemStackProxyImpl.Companion.create(copied)
+        return create(copied)
     }
 
     override fun setCustomName(textProxy: TextProxy) = get().setCustomName(textProxy.text as Text)
@@ -39,6 +39,6 @@ class ItemStackProxyImpl private constructor(itemStack: Any) : ItemStackProxy(it
 
     companion object {
         fun create(itemStack: ItemStack): ItemStackProxy =
-            io.github.gdrfgdrf.cutetrade.common.impl.ItemStackProxyImpl(itemStack)
+            ItemStackProxyImpl(itemStack)
     }
 }
