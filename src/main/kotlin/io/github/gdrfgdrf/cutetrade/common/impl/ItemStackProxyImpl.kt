@@ -3,9 +3,8 @@ package io.github.gdrfgdrf.cutetrade.common.impl
 import io.github.gdrfgdrf.cutetrade.common.proxy.ItemStackProxy
 import io.github.gdrfgdrf.cutetrade.common.proxy.NbtProxy
 import io.github.gdrfgdrf.cutetrade.common.proxy.TextProxy
-import io.github.gdrfgdrf.cutetrade.extension.registryManager
-import io.github.gdrfgdrf.cutetrade.extension.setCustomName
 import net.minecraft.item.ItemStack
+import net.minecraft.nbt.NbtCompound
 import net.minecraft.text.Text
 
 class ItemStackProxyImpl private constructor(itemStack: Any) : ItemStackProxy(itemStack) {
@@ -28,11 +27,12 @@ class ItemStackProxyImpl private constructor(itemStack: Any) : ItemStackProxy(it
         return create(copied)
     }
 
-    override fun setCustomName(textProxy: TextProxy) = get().setCustomName(textProxy.text as Text)
+    override fun setCustomName(textProxy: TextProxy) {
+        get().setCustomName(textProxy.text as Text)
+    }
 
     override fun writeNbt(nbtProxy: NbtProxy) {
-        val nbtCompound = get().encode(registryManager())
-        nbtProxy.nbt = nbtCompound
+        get().writeNbt(nbtProxy.nbt as NbtCompound)
     }
 
     fun get(): ItemStack = itemStack as ItemStack

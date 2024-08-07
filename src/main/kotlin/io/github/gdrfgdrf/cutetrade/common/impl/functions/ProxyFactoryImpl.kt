@@ -9,7 +9,6 @@ import io.github.gdrfgdrf.cutetrade.common.proxy.ItemStackProxy
 import io.github.gdrfgdrf.cutetrade.common.proxy.NbtProxy
 import io.github.gdrfgdrf.cutetrade.common.proxy.PacketByteBufProxy
 import io.github.gdrfgdrf.cutetrade.common.proxy.TextProxy
-import io.github.gdrfgdrf.cutetrade.extension.registryManager
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.nbt.StringNbtReader
@@ -18,7 +17,7 @@ import net.minecraft.text.Text
 
 object ProxyFactoryImpl : CommonFunctions.ProxyFactory {
     override fun createItemStackProxyFromNbt(nbtProxy: NbtProxy): ItemStackProxy {
-        val itemStack = ItemStack.fromNbtOrEmpty(registryManager(), nbtProxy.nbt as NbtCompound)
+        val itemStack = ItemStack.fromNbt(nbtProxy.nbt as NbtCompound)
         return ItemStackProxyImpl.create(itemStack)
     }
 
