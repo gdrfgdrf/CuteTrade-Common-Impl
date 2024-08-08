@@ -76,7 +76,6 @@ class PlayerProxyImpl(
     }
 
     override fun isDead(): Boolean {
-        "player $playerName isDead: ${player.isDead}".logInfo()
         return player.isDead
     }
 }
