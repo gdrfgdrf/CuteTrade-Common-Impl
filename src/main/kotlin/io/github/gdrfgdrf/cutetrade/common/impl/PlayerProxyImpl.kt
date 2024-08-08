@@ -18,8 +18,8 @@ import net.minecraft.sound.SoundEvent
 import net.minecraft.text.Text
 
 class PlayerProxyImpl(
-    val name: String,
-    val player: ServerPlayerEntity
+    var name: String,
+    var player: ServerPlayerEntity
 ) : PlayerProxy(name, player) {
     override fun send(prefix: TranslationTextAgent, message: TranslationAgent) {
         message.insert(0, prefix)
@@ -73,5 +73,10 @@ class PlayerProxyImpl(
 
     override fun isDisconnected(): Boolean {
         return player.isDisconnected
+    }
+
+    override fun isDead(): Boolean {
+        "player $playerName isDead: ${player.isDead}".logInfo()
+        return player.isDead
     }
 }
