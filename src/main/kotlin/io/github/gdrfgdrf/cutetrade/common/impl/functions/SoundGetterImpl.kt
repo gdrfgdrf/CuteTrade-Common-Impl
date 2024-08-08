@@ -7,10 +7,10 @@ import net.minecraft.sound.SoundEvents
 
 object SoundGetterImpl : CommonFunctions.SoundGetter {
     val START_SOUND = SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP
-    val STATE_POSITIVE_SOUND = SoundEvents.BLOCK_NOTE_BLOCK_HARP
-    val STATE_NEGATIVE_SOUND = SoundEvents.BLOCK_NOTE_BLOCK_BASS
-    val ADD_ITEM_SOUND = SoundEvents.BLOCK_NOTE_BLOCK_BELL
-    val REMOVE_ITEM_SOUND = SoundEvents.BLOCK_NOTE_BLOCK_DIDGERIDOO
+    val STATE_POSITIVE_SOUND = SoundEvents.BLOCK_NOTE_BLOCK_HARP.value()
+    val STATE_NEGATIVE_SOUND = SoundEvents.BLOCK_NOTE_BLOCK_BASS.value()
+    val ADD_ITEM_SOUND = SoundEvents.BLOCK_NOTE_BLOCK_BELL.value()
+    val REMOVE_ITEM_SOUND = SoundEvents.BLOCK_NOTE_BLOCK_DIDGERIDOO.value()
     val TERMINATE_SOUND = SoundEvents.BLOCK_ANVIL_LAND
     val FINISH_SOUND = SoundEvents.ENTITY_PLAYER_LEVELUP
 
